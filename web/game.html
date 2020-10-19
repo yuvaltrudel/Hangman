@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+         b.impact{
+
+        font-family: 'Barrio', cursive;
+	    font-family: 'Indie Flower', cursive;
+        font-size: 70px;
+       }
+       a {
+             color: black;
+             text-decoration:none;
+
+
+            }
+       .game-section {
+	        float: left;
+	        margin-top: 280px;
+	        margin-left: 20px;
+	        margin-right: 30px;
+	        width: 400px;
+        }
+        .drawing {
+            margin-top: 200px;
+	        float: left;
+	        position: relative;
+	        width: 300px;
+        }
+
+        #hangman-section {
+	        float: left;
+	        margin-right: 100px;
+        }
+        .letters-section {
+            margin-top: 70px;
+            margin-left: 0px;
+        	float: left;
+	        width: 360px;
+	        height: 400px;
+        }
+
+        .row{
+            font-family: 'Barrio', cursive;
+	        font-family: 'Indie Flower', cursive;
+            font-size: 20px;
+        }
+
+        #resetButton{
+            width: 150px;
+	        height: 40px;
+	        margin-left: 100px;
+	        margin-top: 30px;
+	        font-family: 'Barrio', cursive;
+	        font-family: 'Indie Flower', cursive;
+	        color: black;
+	        border-radius: 5px;
+	        font-size: 20px;
+	        display: none;
+        }
+        #head, #right-arm, #left-arm, #body, #left-leg, #right-leg {
+	        position: absolute;
+	        display: none;
+
+        }
+        #head {
+	        top: 40px;
+	        left: 130px;
+        }
+
+        #body {
+	        top: 85px;
+	        left: 153px;
+        }
+
+        #left-arm {
+	        top: 85px;
+	        left: 121px;
+        }
+
+        #right-arm {
+	        top: 80px;
+	        left: 154px;
+        }
+
+        #right-leg {
+	        top: 129px;
+	        left: 153px;
+        }
+
+        #left-leg {
+	        top: 129px;
+	        left: 130px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="drawing">
+        <div id="hangman-section">
+            <img id="hangman" src="images/hangman-img.png">
+        </div>
+        <div id="hide">
+					<img id="head" class="hide" src="images/Head.png">
+					<img id="body" class="hide" src="images/body.png">
+					<img id="left-arm" class="hide" src="images/left arm.png">
+					<img id="right-arm" class="hide" src="images/right arm.png">
+					<img id="left-leg" class="hide" src="images/left leg.png">
+					<img id="right-leg" class="hide" src="images/right leg.png">
+        </div>
+
+        </div>
+
+    <div class="game-section">
+        <b id="wordDiv" class="impact"></b>
+        <button id="resetButton" style="display: inline"><a class="a" href="index.html">Play Again</a></button>
+    </div>
+
+    <div class="letters-section">
+        <div class="row">
+             <div class="cell"><button onclick="hide('a')" id="a" class="button dark primary cycle outline large"><b>A</b></button></div>
+             <div class="cell"><button onclick="hide('b')" id="b" class="button dark primary cycle outline large"><b>B</b></button></div>
+             <div class="cell"><button onclick="hide('c')" id="c" class="button dark primary cycle outline large"><b>C</b></button></div>
+             <div class="cell"><button onclick="hide('d')" id="d" class="button dark primary cycle outline large"><b>D</b></button></div>
+             <div class="cell"><button onclick="hide('e')" id="e" class="button dark primary cycle outline large"><b>E</b></button></div>
+             <div class="cell"><button onclick="hide('f')" id="f" class="button dark primary cycle outline large"><b>F</b></button></div>
+             <div class="cell"><button onclick="hide('g')" id="g" class="button dark primary cycle outline large"><b>G</b></button></div>
+             <div class="cell"><button onclick="hide('h')" id="h" class="button dark primary cycle outline large"><b>H</b></button></div>
+             <div class="cell"><button onclick="hide('i')" id="i" class="button dark primary cycle outline large"><b>I</b></button></div>
+             <div class="cell"><button onclick="hide('j')" id="j" class="button dark primary cycle outline large"><b>J</b></button></div>
+             <div class="cell"><button onclick="hide('k')" id="k" class="button dark primary cycle outline large"><b>K</b></button></div>
+             <div class="cell"><button onclick="hide('l')" id="l" class="button dark primary cycle outline large"><b>L</b></button></div>
+             <div class="cell"><button onclick="hide('m')" id="m" class="button dark primary cycle outline large"><b>M</b></button></div>
+             <div class="cell"><button onclick="hide('n')" id="n" class="button dark primary cycle outline large"><b>N</b></button></div>
+             <div class="cell"><button onclick="hide('o')" id="o" class="button dark primary cycle outline large"><b>O</b></button></div>
+             <div class="cell"><button onclick="hide('p')" id="p" class="button dark primary cycle outline large"><b>P</b></button></div>
+             <div class="cell"><button onclick="hide('q')" id="q" class="button dark primary cycle outline large"><b>Q</b></button></div>
+             <div class="cell"><button onclick="hide('r')" id="r" class="button dark primary cycle outline large"><b>R</b></button></div>
+             <div class="cell"><button onclick="hide('s')" id="s" class="button dark primary cycle outline large"><b>S</b></button></div>
+             <div class="cell"><button onclick="hide('t')" id="t" class="button dark primary cycle outline large"><b>T</b></button></div>
+             <div class="cell"><button onclick="hide('u')" id="u" class="button dark primary cycle outline large"><b>U</b></button></div>
+             <div class="cell"><button onclick="hide('v')" id="v" class="button dark primary cycle outline large"><b>V</b></button></div>
+             <div class="cell"><button onclick="hide('w')" id="w" class="button dark primary cycle outline large"><b>W</b></button></div>
+             <div class="cell"><button onclick="hide('x')" id="x" class="button dark primary cycle outline large"><b>X</b></button></div>
+             <div class="cell"><button onclick="hide('y')" id="y" class="button dark primary cycle outline large"><b>Y</b></button></div>
+             <div class="cell"><button onclick="hide('z')" id="z" class="button dark primary cycle outline large"><b>Z</b></button></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script>
+        var number_guess = 0;
+        var word = localStorage.getItem("secret");
+        var underscore = ""
+        var old_letters_guessed = []
+        for(var i = 0; i< word.length; i++){
+            underscore += "_ "
+        }
+
+        document.getElementById('wordDiv').innerText = underscore
+
+        function hide(id) {
+            var x = document.getElementById(id);
+            x.style.display = "none";
+            old_letters_guessed += id;
+            eel.game_screen(word, old_letters_guessed, number_guess)(function(secret_word){
+                switch(secret_word) {
+                    case 1:
+                       number_guess = secret_word
+                       var head = document.getElementById("head");
+                       head.style.display = "block";
+                     break;
+                    case 2:
+                       number_guess = secret_word
+                       var body = document.getElementById("body");
+                       body.style.display = "block";
+                     break;
+                    case 3:
+                        number_guess = secret_word
+                        var right_arm = document.getElementById("right-arm");
+                        right_arm.style.display = "block";
+                     break;
+                    case 4:
+                        number_guess = secret_word
+                        var left_arm = document.getElementById("left-arm");
+                        left_arm.style.display = "block";
+                     break;
+                    case 5:
+                        number_guess = secret_word
+                        var right_leg = document.getElementById("right-leg");
+                        right_leg.style.display = "block";
+                     break;
+                    case 6:
+                        var left_leg = document.getElementById("left-leg");
+                        left_leg.style.display = "block";
+                        document.getElementById('wordDiv').innerText = "YOU LOSE!"
+                        var letters = document.getElementsByClassName('letters-section');
+                        for (var i = 0; i < letters.length; i ++) {
+                            letters[i].style.display = 'none';
+                            }
+                     break;
+                     default:
+                      document.getElementById('wordDiv').innerText = secret_word
+
+                      if(secret_word == "YOU WON!"){
+                        var letters = document.getElementsByClassName('letters-section');
+                        for (var i = 0; i < letters.length; i ++) {
+                            letters[i].style.display = 'none';
+                          }
+                      }
+
+                    }
+           });
+        }
+
+    </script>
+</body>
+</html>

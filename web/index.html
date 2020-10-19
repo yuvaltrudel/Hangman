@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+       b.text{
+        font-family: 'Barrio', cursive;
+        font-size: 30px;
+        margin-left: 180px;
+        margin-top: 40px;
+       }
+
+       .monospace {
+        font-family:'Barrio', cursive;
+        font-size: 25px;
+        margin-top: 40px;
+        margin-left: 70px;
+        }
+
+        #title {
+            margin-left: 300px;
+        	float: left;
+        	margin-top: 40px;
+        }
+
+        #play {
+
+            margin-top: 40px;
+            margin-left: 470px;
+        	float: left;
+
+        }
+
+        a {
+             color: black;
+             text-decoration:none;
+             font-family: 'Barrio', cursive;
+
+            }
+        #btnMinus{
+            margin-left: 170px;
+            margin-top: 50px;
+        }
+        #btnPlus{
+            margin-left: 80px;
+            margin-top: 50px;
+        }
+
+        #user_input{
+             margin-top: 50px;
+             margin-left: 20px;
+        }
+
+
+
+    </style>
+
+    <title>Hangman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body> <!--=oncontextmenu="return false" onselectstart="return false" ondragstart="return false">-->
+
+    <div class="container">
+
+            <div class="row">
+            <img id="title" src="images/logo.png">
+            </div>
+
+            <div class="row">
+
+                    <b id="filePath" class="text">File path:</b>
+                    <input id="user_input"  size="60" type="text"  >
+
+            </div>
+
+            <div class="row">
+
+                    <b class="text">Index:</b>
+                    <button class="button dark cycle small outline " id="btnMinus"><span class="mif-chevron-thin-down"></span></button>
+                    <p class="monospace"  id="index-number"></p>
+                    <button class="button dark cycle small outline " id="btnPlus"><span class="mif-chevron-thin-up"></span></button>
+
+            </div>
+
+            <button id="play" class="button dark large outline rounded"  ><a class="a" id="btnPlay" href="game.html"><b>Let's start!</b></a> </button>
+        </div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script>
+
+       var number = 1;
+       var numDiv = document.getElementById('index-number');
+       var upBtn = document.getElementById('btnPlus');
+       var downBtn = document.getElementById('btnMinus');
+       numDiv.innerText=number;
+       upBtn.addEventListener("click",up)
+       downBtn.addEventListener("click",down)
+
+       function up(){
+           number++
+           numDiv.innerText=number
+       };
+       function down(){
+       if(number>1){
+           number--
+           numDiv.innerText=number
+           }else{
+           number=1
+           }
+       };
+
+        $("#btnPlay").click(function(){
+        var text_input = $("#user_input").val();
+        eel.main_screen(text_input, number)(function(secret_word){
+          localStorage.setItem("secret",secret_word)
+
+        });
+      });
+
+    </script>
+</body>
+</html>
